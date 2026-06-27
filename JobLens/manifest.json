@@ -3,7 +3,12 @@
     "name": "JobLens",
     "description": "Analiza las ofertas de empleo y calcula la compatibilidad.",
     "version": "1.0.0",
-    "author": "Kevin Landazuri(Axion Studios)",
+    "author": "AndresSTW(Axion Studios)",
+    "icon": {
+        "16": "",
+        "48": "",
+        "128": ""
+    },
     "permissions": [
         "storage",
         "activeTab",
@@ -15,7 +20,8 @@
     ],
     "action": {
         "default_popup": "popup/popup.html",
-        "default_title": "JobLens"
+        "default_title": "JobLens",
+        "default_icon": ""
     },
     "content_scripts": [
         {
