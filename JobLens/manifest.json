@@ -1,0 +1,16 @@
+{
+    "manifest_version":3,
+    "name": "JobLens",
+    "description": "Analiza las ofertas de empleo y calcula la compatibilidad.",
+    "version": "1.0.0",
+
+
+    "permissions":[
+        "storage",
+        "activeTab",
+        "scrpiting"
+    ],
+    
+
+
+},
