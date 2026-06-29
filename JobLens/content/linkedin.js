@@ -1,44 +1,72 @@
 (() => {
   console.log("JobLens activo en LinkedIn");
 
-  const isJobPage = window.location.pathname.includes("/jobs/view/");
+  if (!window.location.pathname.includes("/jobs/view/")) {
+    return;
+  }
+ 
+  // if (!window.location.pathname.includes("/jobs/search/")) {
+  //   return;
+  // }  estoy analizando el modo normal para entrar a buscar ofertas sin tener que ir a jobs/view
 
-  if (!isJobPage) return;
-
-  const offer = {
+  const currentOffer = {
     title: "",
     company: "",
     location: "",
-    description: ""
+    description: "",
+    employmentType: "",
+    experience: "",
+    salary: "",
+    technologies: [],
+    analyzedAt: new Date().toISOString(),
   };
 
-  function extractJob() {
-    offer.title =
+  function extractTitle() {
+    return (
       document
         .querySelector(".job-details-jobs-unified-top-card__job-title")
-        ?.innerText.trim() || "";
+        ?.innerText.trim() || ""
+    );
+  }
 
-    offer.company =
+  function extractCompany() {
+    return (
       document
         .querySelector(".job-details-jobs-unified-top-card__company-name")
-        ?.innerText.trim() || "";
+        ?.innerText.trim() || ""
+    );
+  }
 
-    offer.location =
+  function extractLocation() {
+    return (
       document
         .querySelector(
-          ".job-details-jobs-unified-top-card_primary-description-container",
+          ".job-details-jobs-unified-top-card__primary-description-container",
         )
-        ?.innerText.trim() || "";
+        ?.innerText.trim() || ""
+    );
+  }
 
-    offer.description =
-      document.querySelector(".jobs-descriptions__content")?.innerText.trim() ||
-      "";
+  function extractDescription() {
+    return (
+      document.querySelector(".jobs-description__content")?.innerText.trim() ||
+      ""
+    );
+  }
+
+  function extractJob() {
+    currentOffer.title = extractTitle();
+    currentOffer.company = extractCompany();
+    currentOffer.location = extractLocation();
+    currentOffer.description = extractDescription();
 
     chrome.storage.local.set({
-      currentOffer: offer,
+      currentOffer: currentOffer,
     });
 
-    console.log(offer);
+    console.group("JobLens");
+    console.table(currentOffer);
+    console.groupEnd();
   }
 
   setTimeout(extractJob, 2000);

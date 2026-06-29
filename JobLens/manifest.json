@@ -1,44 +1,42 @@
 {
-    "manifest_version": 3,
-    "name": "JobLens",
-    "description": "Analiza las ofertas de empleo y calcula la compatibilidad.",
-    "version": "1.0.0",
-    "author": "AndresSTW(Axion Studios)",
-    "icon": {
-        "16": "",
-        "48": "",
-        "128": ""
+  "manifest_version": 3,
+  "name": "JobLens",
+  "description": "Analiza las ofertas de empleo y calcula la compatibilidad.",
+  "version": "1.0.0",
+  "author": "AndresSTW (Axion Studios)",
+
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "https://www.linkedin.com/*",
+    "https://www.computrabajo.com/*"
+  ],
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "JobLens"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/*"
+      ],
+      "js": [
+        "content/linkedin.js"
+      ]
     },
-    "permissions": [
-        "storage",
-        "activeTab",
-        "scripting"
-    ],
-    "host_permissions": [
-        "https://www.linkedin.com/*",
+    {
+      "matches": [
         "https://www.computrabajo.com/*"
-    ],
-    "action": {
-        "default_popup": "popup/popup.html",
-        "default_title": "JobLens",
-        "default_icon": ""
-    },
-    "content_scripts": [
-        {
-            "matches": [
-                "https://www,linkedin.com/*"
-            ],
-            "js": [
-                "content/linkedin.js"
-            ]
-        },
-        {
-            "matches": [
-                "https//www.computrabajo.com/*"
-            ],
-            "js": [
-                "content/computrabajo.js"
-            ]
-        }
-    ]
+      ],
+      "js": [
+        "content/computrabajo.js"
+      ]
+    }
+  ]
 }
