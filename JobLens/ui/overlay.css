@@ -1,0 +1,53 @@
+#joblens-overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 320px;
+    background: rgba(25,25,25,.96);
+    color: white;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.35);
+    backdrop-filter: blur(12px);
+    padding: 18px;
+    z-index: 999999999;
+    font-family: Arial, Helvetica, sans-serif;
+    animation: jlFade .25s ease;
+}
+
+@keyframes jlFade{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+#joblens-overlay h2{
+    margin:0;
+    font-size:18px;
+}
+
+#joblens-overlay p{
+    margin:8px 0;
+}
+
+#joblens-overlay hr{
+    border:none;
+    border-top:1px solid rgba(255,255,255,.15);
+    margin:15px 0;
+}
+
+.joblens-company{
+    color:#4da3ff;
+    font-weight:bold;
+}
+
+#jl-close{
+    float:right;
+    cursor:pointer;
+    font-size:18px;
+}

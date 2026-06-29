@@ -26,7 +26,11 @@
       "matches": [
         "https://www.linkedin.com/*"
       ],
+      "css": [
+        "ui/overlay.css"
+      ],
       "js": [
+        "ui/overlay.js",
         "content/linkedin.js"
       ]
     },
@@ -34,7 +38,11 @@
       "matches": [
         "https://www.computrabajo.com/*"
       ],
+      "css": [
+        "ui/overlay.css"
+      ],
       "js": [
+        "ui/overlay.js",
         "content/computrabajo.js"
       ]
     }
